@@ -1,13 +1,15 @@
-import React from 'react'
-import "./CartPage.css"
-import CartItemCard from '../components/CartItemCard'
-import OrderSummaryCard from '../components/OrderSummaryCard'
-function CartPage({cartItems,onQuantityDecrease,onQuantityIncrease,setCartItems}) {
+import { useSelector } from 'react-redux';
 
-    const subtotal = cartItems.reduce(
-        (total, item) => total + (item.product.price * item.quantity),
-        0
-    );
+import { selectCartItems } from '../../redux/selectors/cartSelectors';
+
+import CartItemCard from '../../components/CartItemCard/CartItemCard'
+import OrderSummaryCard from '../../components/OrderSummaryCard/OrderSummaryCard'
+
+import "./CartPage.css"
+
+function CartPage() {
+
+    const cartItems  = useSelector(selectCartItems);
     if(cartItems.length <= 0){
         return (
             <div className='empty-cart'>
@@ -31,15 +33,13 @@ function CartPage({cartItems,onQuantityDecrease,onQuantityIncrease,setCartItems}
                     cartItems.map((cartItem) => (
                         <CartItemCard
                             cartItem={cartItem}
-                            onQuantityDecrease={onQuantityDecrease}
-                            onQuantityIncrease={onQuantityIncrease}
                             key={cartItem.product.id}
                         />
                     ))
                 }
             </div>
             <div className='order-summary-card'>
-                <OrderSummaryCard subtotal={subtotal} setCartItems={setCartItems}/>
+                <OrderSummaryCard/>
             </div>
         </div>
     )

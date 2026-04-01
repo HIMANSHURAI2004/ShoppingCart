@@ -1,0 +1,182 @@
+.product-card {
+    background: #fff;
+    border-radius: 0.8rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border: 0.1rem solid #1a1a2e;
+    padding: 0.5rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.product-image {
+    width: 100%;
+    height: 14rem;
+    object-fit: cover;
+    border-radius: 0.8rem;
+    transition: transform 0.3s ease;
+}
+
+.product-body {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.product-category {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #888;
+    margin-bottom: 0.4rem;
+}
+
+.product-name {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.product-price {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 1.2rem;
+    margin-top: auto;
+}
+
+.product-btn {
+    background-color: #1487c9;
+    color: #fff;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 0.4rem;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.product-btn:hover {
+    background-color: #134c8a;
+}
+
+.product-btn:active {
+    background-color: #1f64b8;
+}
+
+/* Quantity Controls Styling - Button-Like Style */
+.product-quantity-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0;
+    margin-top: auto;
+    width: 100%;
+    background-color: #1589d1;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    height: 2.5rem;
+}
+
+.product-qty-btn {
+    background-color: transparent;
+    color: white;
+    border: none;
+    flex: 1;
+    height: 100%;
+    font-size: 1.4rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-qty-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.product-qty-btn:active {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.product-quantity {
+    font-size: 1rem;
+    font-weight: 600;
+    flex: 1;
+    text-align: center;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.15);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .product-image {
+        height: 12rem;
+    }
+
+    .product-body {
+        padding: 0.8rem;
+    }
+
+    .product-name {
+        font-size: 0.95rem;
+    }
+
+    .product-price {
+        font-size: 1.1rem;
+    }
+
+    .product-btn {
+        padding: 0.4rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .product-image {
+        height: 10rem;
+    }
+
+    .product-body {
+        padding: 0.6rem;
+    }
+
+    .product-category {
+        font-size: 0.7rem;
+    }
+
+    .product-name {
+        font-size: 0.9rem;
+    }
+
+    .product-price {
+        font-size: 1rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .product-btn {
+        padding: 0.4rem;
+        font-size: 0.85rem;
+    }
+
+    .product-quantity-controls {
+        height: 2.2rem;
+    }
+
+    .product-qty-btn {
+        font-size: 1.2rem;
+    }
+}
