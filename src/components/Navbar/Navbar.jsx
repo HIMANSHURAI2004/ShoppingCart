@@ -1,24 +1,24 @@
-import {Link, useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+
+import { selectCartItemCount } from '../../redux/selectors/cartSelectors'
+
 import "./Navbar.css"
-function Navbar({cartItemCount}) {
+
+function Navbar() {
     const location = useLocation();
-    const isProductPage = location.pathname == '/'
-    const isCartPage = location.pathname == '/cart'
+    const cartItemCount = useSelector(selectCartItemCount);
+    const isProductPage = location.pathname === '/';
+    const isCartPage = location.pathname === '/cart';
+
     return (
         <nav className='navbar'>
             <div className='app-name'>
-                {
-                    isProductPage &&
-                    <p>Shop</p>
-                }
-                {
-                    isCartPage &&
-                    <p>Your Cart</p>
-                }
+                {isProductPage && <p>Shop</p>}
+                {isCartPage && <p>Your Cart</p>}
             </div>
             <div>
-                {
-                    isProductPage &&
+                {isProductPage && (
                     <Link to="/cart" className="header-link">
                         <div className='cart'>
                             <img
@@ -27,20 +27,17 @@ function Navbar({cartItemCount}) {
                                 alt='cart'
                             />
                             {cartItemCount > 0 && (
-                            <span className="cart-count">{cartItemCount}</span>
+                                <span className="cart-count">{cartItemCount}</span>
                             )}
                         </div>
                     </Link>
-                }
-                {
-                    isCartPage && 
+                )}
+                {isCartPage && (
                     <Link to="/" className="header-link">
                         <span className='product-button'>Go to Products</span>
                     </Link>
-                }
+                )}
             </div>
-            
-        
         </nav>
     )
 }
